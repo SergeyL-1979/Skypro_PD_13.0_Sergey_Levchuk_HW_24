@@ -17,7 +17,6 @@ def read_file(file_name: str):
             yield line
 
 
-# def build_query(cmd: str, value: str, file_name: str, data: Optional[list[str]]):
 def build_query(cmd: str, value: str, file_name: str, data: Optional[Iterable[str]]):
     if data is None:
         prepared_data = read_file(file_name)
