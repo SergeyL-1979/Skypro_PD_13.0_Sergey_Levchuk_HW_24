@@ -1,6 +1,6 @@
 from typing import Optional, Iterable
 
-from functions import filter_query, limit_query, map_query, sort_query, unique_query
+from functions import filter_query, limit_query, map_query, sort_query, unique_query, regex_query
 
 CMD_TO_FUNCTIONS = {
     'filter': filter_query,
@@ -8,8 +8,8 @@ CMD_TO_FUNCTIONS = {
     'map': map_query,
     'sort': sort_query,
     'unique': unique_query,
+    'regex': regex_query
  }
-
 
 def read_file(file_name: str):
     with open(file_name, "r", encoding="utf-8") as file:
