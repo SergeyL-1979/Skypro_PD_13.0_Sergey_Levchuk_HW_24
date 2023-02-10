@@ -5,6 +5,10 @@ def filter_query(value: str, data: Iterable[str]):
     return filter(lambda x: value in x, data)
 
 
+def regex_query(value: str, data: Iterable[str]):
+    return filter(lambda v: re.compile(value).search(v), data)
+
+
 def unique_query(data, *args, **kwargs):
     return set(data)
 
@@ -22,13 +26,3 @@ def map_query(value, data):
 def sort_query(value, data):
     reverse = value == "desc"
     return sorted(data, reverse=reverse)
-
-def regex_query(value: str, data: Iterable[str]):
-    # data = read_file(LOG_FILE)
-    regex = re.compile('images/\\w+\\.svg|png|jpg|jpeg')
-    result = filter(lambda v: regex.search(v), data)
-    print(''.join(result))
-    return regex.findall(value)
-
-
-
