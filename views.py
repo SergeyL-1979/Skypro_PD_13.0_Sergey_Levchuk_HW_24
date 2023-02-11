@@ -1,6 +1,6 @@
-from typing import Optional, Any, AnyStr
+from typing import Optional, Any, Tuple, Iterable, Dict, Union
 
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, Response
 from marshmallow import ValidationError
 
 from builder import build_query
@@ -8,11 +8,10 @@ from models import RequestSchema, BatchRequestSchema
 
 main_bp = Blueprint('main', __name__)
 
-# FILE_NAME = 'data/apache_logs.txt'
-
 
 @main_bp.route("/perform_query", methods=['POST'])
-def perform_query():
+def perform_query() -> Union[Response, Tuple[Response,int]]:
+
     data = request.json
 
     try:
@@ -25,9 +24,8 @@ def perform_query():
         result = build_query(
             cmd=query['cmd'],
             value=query['value'],
-            # file_name=query['file_name'],
             file_name=validate_data['file_name'],
             data=result,
         )
 
-    return jsonify(result)
+    return jsonify(result), 200

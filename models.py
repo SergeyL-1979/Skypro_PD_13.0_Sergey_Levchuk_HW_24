@@ -1,6 +1,9 @@
 from marshmallow import Schema, ValidationError, fields, validate, validates_schema
 
-VALID_CMD_COMMANDS = ('filter', 'unique', 'map', 'limit', 'sort', 'regex')
+
+VALID_CMD_COMMANDS: tuple = (
+    'filter', 'unique', 'map', 'limit', 'sort', 'regex'
+)
 
 
 class RequestSchema(Schema):
@@ -12,6 +15,7 @@ class RequestSchema(Schema):
     # def check_all_cmd_valid(self, values: dict[str, str], *args, **kwargs):
     #     if values['cmd'] not in VALID_CMD_COMMANDS:
     #         raise ValidationError('"cmd" contains invalid value')
+
 
 class BatchRequestSchema(Schema):
     queries = fields.Nested(RequestSchema, many=True)
