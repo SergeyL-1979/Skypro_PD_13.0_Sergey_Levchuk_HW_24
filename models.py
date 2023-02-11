@@ -7,6 +7,9 @@ VALID_CMD_COMMANDS: tuple = (
 
 
 class RequestSchema(Schema):
+    """
+    Model RequestSchema
+    """
     cmd = fields.Str(required=True, validate=validate.OneOf(VALID_CMD_COMMANDS))
     value = fields.Str(required=True)
 
@@ -18,5 +21,8 @@ class RequestSchema(Schema):
 
 
 class BatchRequestSchema(Schema):
+    """
+    Model BatchRequestSchema
+    """
     queries = fields.Nested(RequestSchema, many=True)
     file_name = fields.Str(required=True)
