@@ -11,13 +11,13 @@ CMD_TO_FUNCTIONS = {
     'regex': regex_query
  }
 
-def read_file(file_name: str):
+def read_file(file_name: str) -> Iterable[str]:
     with open(file_name, "r", encoding="utf-8") as file:
         for line in file:
             yield line
 
 
-def build_query(cmd: str, value: str, file_name: str, data: Optional[Iterable[str]]):
+def build_query(cmd: str, value: str, file_name: str, data: Optional[Iterable[str]]) -> Iterable[str]:
     if data is None:
         prepared_data = read_file(file_name)
     else:
