@@ -3,6 +3,7 @@ from typing import Optional, Any, AnyStr
 from flask import Blueprint, request, jsonify
 from marshmallow import ValidationError
 
+
 from builder import build_query
 from models import RequestSchema, BatchRequestSchema
 
