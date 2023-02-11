@@ -1,53 +1,5 @@
 # Skypro_PD_13.0_Sergey_Levchuk_HW_24
 
-## НЕ ПОЛУЧИЛОСЬ ОБРАБОТАТЬ И ВЫВЕСТИ РЕЗУЛЬТАТ
-* Три ошибки при запуске `mypy run.py`
-![img.png](img.png)
-
-В файле `builder.py` 26 строка ему не нравиться **return**
-```python
-return list(CMD_TO_FUNCTIONS[cmd](value=value, data=prepared_data))
-```
-
-В файле `views.py` 15 строка ошибку выводит функция
-```python
-def perform_query():
-```
-
-В файле `run.py` 6 строка ошибка
-```python
-app.run(debug=True)
-```
-
-Самое интересное, что вот такое решение убрало ошибку
-```python
-if __name__ == '__main__':
-    if app is not None:
-        app.run(debug=True)
-```
-
-### Как решить эти ошибки не знаю
-
----
-
-### Еще не решенный вопрос, но возможно это правильный вывод запроса. 
-У меня выводит ответ вот такой формы
-```
-    "100.2.4.116 - - [18/May/2015:21:05:22 +0000] \"GET /blog/geekery/mounting-partitions-within-a-disk-image-in-linux.html HTTP/1.1\" 200 9699 \"http://www.semicomplete.com/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:22.0) Gecko/20100101 Firefox/22.0\"\n",
-    "100.2.4.116 - - [19/May/2015:04:05:22 +0000] \"GET /blog/geekery/mounting-partitions-within-a-disk-image-in-linux.html HTTP/1.1\" 200 9699 \"http://www.semicomplete.com/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:22.0) Gecko/20100101 Firefox/22.0\"\n",
-```
-
-## Но в задании показан вот такой пример
-![img_1.png](img_1.png)
-
-## Хотя ниже приведен пример такой, как я получаю ответ
-![img_2.png](img_2.png)
-
-
-И вот где правильно не понятно
-
-***
-***
 ## Задача
 
 Усовершенствовать язык программирования и добавить команду — regex.
